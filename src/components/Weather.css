@@ -1,11 +1,15 @@
 .weather-container {
-  transition: background-color 0.4s ease, color 0.4s ease;
+  height: 95vh; /* shorter to avoid scrolling */
+  max-width: 420px; /* wider layout */
+  margin: 0 auto;
   padding: 20px;
-  min-height: 100vh;
   font-family: 'Segoe UI', sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  border-radius: 20px;
+  box-sizing: border-box;
 }
 
 .weather-container.light {
@@ -18,12 +22,13 @@
   color: #f0f0f0;
 }
 
+/* 🔍 Search Bar */
 .top-bar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
 }
 
 .top-bar input {
@@ -40,6 +45,7 @@
   cursor: pointer;
 }
 
+/* 📄 Weather Details */
 .weather-card {
   text-align: center;
   animation: fadeIn 0.8s ease;
@@ -117,14 +123,16 @@
 /* 🔽 MOBILE RESPONSIVENESS */
 @media (max-width: 480px) {
   .top-bar {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 10px;
+    flex-wrap: nowrap; /* 👈 ensures input + icon stay inline */
   }
 
   .top-bar input {
     font-size: 14px;
     padding: 8px 12px;
+  }
+
+  .top-bar img {
+    width: 26px;
   }
 
   .weather-icon {
